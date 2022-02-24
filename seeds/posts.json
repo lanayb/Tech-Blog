@@ -1,0 +1,18 @@
+[
+    {
+        "comments": "I love javascript.",
+        "user_id": 1
+    },
+    {
+        "comments": "Can anyone help with this problem?",
+        "user_id": 2
+    },
+    {
+        "comments": "Do this, but don't worry about this yet.",
+        "user_id": 3
+    },
+    {
+        "comments": "Anyone relate?",
+        "user_id": 4
+    }
+]

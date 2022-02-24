@@ -1,0 +1,27 @@
+[
+    {
+        "first_name": "Lanay",
+        "last_name": "Brown",
+        "email": "lanayb123@gmail.com",
+        "password": "randomPass099"
+    },
+    {
+        "first_name": "Pam",
+        "last_name": "Beesly",
+        "email": "pampam2022@gmail.com",
+        "password": "Jimbo99"
+    },
+    {
+        "first_name": "Stanley",
+        "last_name": "Lewis",
+        "email": "StanTheMan100@gmail.com",
+        "password": "meatballLOL45"
+    },
+    {
+        "first_name": "Mike",
+        "last_name": "Scott",
+        "email": "Ikemike@gmail.com",
+        "password": "OfficeLov3r99"
+    }
+
+]
