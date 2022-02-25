@@ -4,7 +4,7 @@ const path = require('path');
 
 
 router.get('/home', async(req, res) => {
-    try{
+    try {
         res.render('homePage', {});
     } catch(err) {
         res.status(400).json(err);
