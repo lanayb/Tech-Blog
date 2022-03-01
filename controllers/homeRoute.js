@@ -20,14 +20,12 @@ router.get('/', async(req, res) => {
 //     res.render('signup', {signup});
 //  });
 
-
-
 router.get('/login', async(req, res) => {
-    try{
-        res.render('login', {});
-    } catch(err) {
-        res.status(400).json(err);
-    }
+    const loginPg = await User.findAll().catch((err) => {
+        res.json(err);
+   });
+   const login = loginPg.map((login) => login.get({ plain:true }));
+   res.render('login', {login});
 });
 
 module.exports = router;
