@@ -13,8 +13,37 @@ router.get('/userLogin', async(req, res) => {
 
 router.post('/userLogin', async(req, res) => {
     try {
-        const userLogin = await User.create(req.body);
-        res.status(200).json(userLogin);
+        const userLogin = await User.findOne({
+            where: {
+              first_name: req.body.first_name,
+              last_name: req.body.last_name,  
+            },
+        });
+        let password = userLogin.password;
+
+
+        console.log(userLogin);
+        if(!userLogin) {
+            res.status(400).json({
+                message: 'Wrong email or password. Try again please!'
+            });
+        } else if (req.body.password !== password) {
+            res.status(400).json({
+                message: 'Wrong email or password. Try again please!'
+                
+            });
+        } else {
+
+        req.session.save(() => {
+            req.session.loggedIn = true;
+
+            res.status(200).json({
+                user: userLogin, 
+                message: 'Nice, you are now logged in!'
+            });
+        });
+    }
+        // res.status(200).json(userLogin);
     } catch(err) {
         res.status(400).json(err);
     }

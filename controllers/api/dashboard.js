@@ -5,16 +5,26 @@ const { Post } = require("../../models");
 router.get('/userPost', async(req, res) => {
     try {
         const userPost = await Post.findAll();
-        // res.status(200).json(userPost);
+        res.status(200).json(userPost);
     } catch(err) {
         res.status(400).json(err);
     }
 });
 
 router.post('/userPost', async(req, res) => {
+    console.log(req.body);
     try {
-        const newPost = await Post.create(req.body);
-        res.status(200).json(newPost);
+        const newPost = await Post.create({
+            comments: "thanks",
+            user_id: 4
+        });
+
+        req.session.save(() => {
+            req.session.loggedIn = true;
+
+            res.status(200).json(newPost);
+        });
+        // res.json(newPost);
     } catch(err) {
         res.status(400).json(err);
     }
